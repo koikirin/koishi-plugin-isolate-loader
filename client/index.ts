@@ -1,12 +1,12 @@
 import { Context } from '@koishijs/client'
-import Page from './page.vue'
+import Config from './config.vue'
 
 import 'virtual:uno.css'
 
 export default (ctx: Context) => {
-  ctx.page({
-    name: '扩展页面',
-    path: '/custom-page',
-    component: Page,
+  ctx.slot({
+    type: 'plugin-details',
+    component: Config,
+    order: -800,
   })
 }

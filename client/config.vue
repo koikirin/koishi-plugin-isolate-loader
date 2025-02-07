@@ -1,5 +1,5 @@
 <template>
-  <k-comment type="secondary">
+  <k-comment v-if="!isInRootGroup" type="secondary">
     <p>
       <el-button type="primary" @click="switchIsolateGroup">
         {{ isInIsolateGroup ? '将本分组还原为常规插件组' : '将本分组转换为Isolated分组' }}
@@ -18,6 +18,9 @@ import type { } from 'koishi-plugin-isolate-loader'
 
 const current: any = inject('manager.settings.current')
 
+const isInRootGroup = computed(() => {
+  return !current.value.parent.path
+})
 const isInIsolateGroup = computed(() => {
   return current.value.parent.config.$isolateConfig?.enabled && current.value.parent.disabled
 })

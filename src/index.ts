@@ -138,7 +138,6 @@ export class IsolateLoader {
   unload(ident: string) {
     const fork = this.resolveFork(ident)
     if (!fork) return
-    this.ctx.logger.info('unload isolated group %c:%c', fork.config.$label, ident)
 
     let { parent, config, configKey } = fork
     configKey ||= Object.keys(parent.scope[kRecord]).find(key => parent.scope[kRecord][key] === fork)

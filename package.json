@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-isolate-loader",
   "description": "Isolation & Interception Loader for Koishi v4",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [

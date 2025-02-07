@@ -1,5 +1,5 @@
 <template>
-  <k-comment v-if="!isInRootGroup" type="secondary">
+  <template v-if="!isInRootGroup">
     <p>
       <el-button type="primary" @click="switchIsolateGroup">
         {{ isInIsolateGroup ? '将本分组还原为常规插件组' : '将本分组转换为Isolated分组' }}
@@ -7,7 +7,7 @@
       <el-button v-if="isInIsolateGroup" type="primary" @click="saveAndReload">保存配置并重载</el-button>
       <k-form v-if="isInIsolateGroup" v-model="config" :schema="schema" :initial="current.parent.config.$isolateConfig" />
     </p>
-  </k-comment>
+  </template>
 </template>
 
 
@@ -44,5 +44,5 @@ interface Config {
 const schema: Schema<Config> = Schema.object({
   isolatedServices: Schema.dict(Schema.string().required(false), Schema.string().description('要隔离的服务')).default({}).role('table').description('服务与隔离域。（值为空或隔离域名称）'),
   proxyAgent: Schema.string().description('代理地址。'),
-}).description('Isolate Config')
+}).description('隔离设置（作用于分组）')
 </script>

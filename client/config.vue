@@ -25,7 +25,14 @@ const isInIsolateGroup = computed(() => {
   return current.value.parent.config.$isolateConfig?.enabled && current.value.parent.disabled
 })
 
-const config = ref<Config>({ ...current.value.parent.config.$isolateConfig ?? {} })
+const config = computed<Config>({
+  get() {
+    return current.value.parent.config.$isolateConfig ?? {}
+  },
+  set(value) {
+    current.value.parent.config.$isolateConfig = value
+  }
+})
 
 const switchIsolateGroup = async () => {
   await send('isolate/switch', current.value.parent.path, !isInIsolateGroup.value)

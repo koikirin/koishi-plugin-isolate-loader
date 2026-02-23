@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-isolate-loader",
   "description": "Isolation & Interception Loader for Koishi v4",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -14,8 +14,16 @@
     "koishi",
     "plugin"
   ],
+  "author": "Hieuzest <girkirin@hotmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koikirin/koishi-plugin-isolate-loader.git"
+  },
   "devDependencies": {
-    "@koishijs/client": "^5.30.1"
+    "@koishijs/client": "^5.30.1",
+    "@koishijs/plugin-console": "^5.30.1",
+    "@koishijs/plugin-config": "^2.8.6",
+    "@koishijs/plugin-proxy-agent": "^0.3.3"
   },
   "peerDependencies": {
     "@koishijs/plugin-console": "^5.30.1",

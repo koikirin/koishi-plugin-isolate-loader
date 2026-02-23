@@ -126,7 +126,7 @@ export class IsolateLoader {
         nested.push(key.slice(7))
       }
       if (key.startsWith('~') || key.startsWith('$')) continue
-      this.ctx.logger.info('apply isolated plugin %c', key, groupConfig[key])
+      this.ctx.logger.info('apply isolated plugin %c', key)
       await this.ctx.loader.reload(fork.ctx, key, groupConfig[key])
     }
 
